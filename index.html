@@ -9,13 +9,14 @@
 <body>
   <h1>Library</h1>
   <button id="add-book-btn">Agregar Libro</button>
+  <div id="container"></div>
   <dialog id="book-dialog">
-    <form id="book-form">
+    <form id="book-form" method="dialog">
       <h2>Agregar un nuevo libro</h2>
-      <input type="text" id="title" placeholder="title" value="El Principito" required>
-      <input type="text" id="author" placeholder="autor" value="Hakicho" required>
-      <input type="number" id="pages" placeholder="pages" value="1000" required>
-      <input type="number" id="year" placeholder="year" value="1950" required>
+      <input type="text" name="title" placeholder="title" value="El Principito" required>
+      <input type="text" name="author" placeholder="autor" value="Hakicho" required>
+      <input type="number" name="pages" placeholder="pages" value="1000" required>
+      <input type="number" name="year" placeholder="year" value="1950" required>
       <label for="read">
       <input type="checkbox" id="read" placeholder="read" checked> Leido?
       </label>

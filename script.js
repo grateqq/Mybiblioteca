@@ -67,11 +67,14 @@ function changeRead(position) {
 
 // -------------con esto ya funciona back
 
+const container = document.getElementById("container")
 const bookDialog = document.getElementById("book-dialog")
-//
+// Formualrio
+const bookForm = document.getElementById("book-form")
+// bottones
 const addBookBtn = document.getElementById("add-book-btn")
 const cancelBtnDialog = document.getElementById("cancel-btn")
-const subirBtnDialog = document.getElementById("subir-btn")
+const agregarBtnDialog = document.getElementById("agregar-btn")
 //abre el formulario con boton agregar libro
 addBookBtn.addEventListener("click", ()=> {
   bookDialog.showModal()
@@ -81,10 +84,26 @@ cancelBtnDialog.addEventListener("click", ()=> {
   bookDialog.close()
 })
 
-//cerrar formulario
-subirBtnDialog.addEventListener("click", ()=> {
-  bookDialog.close()
+console.log(myLibrary)
+
+//tomar datos del formulario
+bookForm.addEventListener("submit", (e)=> {
+  const datos = new FormData(bookForm);
+  const title = datos.get("title");
+  const author = datos.get("author");
+  const pages = datos.get("pages");
+  const year = datos.get("year");
+  const read = document.getElementById("read").checked;
+  
+  action(title, author, pages, year, read);
+  bookForm.reset();
+  
+  console.log(myLibrary)
 })
+
+container.
+
+
 
 
 
