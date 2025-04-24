@@ -7,6 +7,23 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <a href=""></a>
+  <h1>Library</h1>
+  <button id="add-book-btn">Agregar Libro</button>
+  <dialog id="book-dialog">
+    <form id="book-form">
+      <h2>Agregar un nuevo libro</h2>
+      <input type="text" id="title" placeholder="title" value="El Principito" required>
+      <input type="text" id="author" placeholder="autor" value="Hakicho" required>
+      <input type="number" id="pages" placeholder="pages" value="1000" required>
+      <input type="number" id="year" placeholder="year" value="1950" required>
+      <label for="read">
+      <input type="checkbox" id="read" placeholder="read" checked> Leido?
+      </label>
+      <div>
+        <button type="submit" id="agregar-btn">Agregar</button>
+        <button type="button" id="cancel-btn">Cancelar</button>
+      </div>
+    </form>
+  </dialog>
 </body>
 </html>

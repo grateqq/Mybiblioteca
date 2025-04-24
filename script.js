@@ -23,31 +23,31 @@ function action (title, author, pages, year, read) {
   const libro = createBook (title, author, pages, year, read);
   addBook(libro);
 }
+// --- START TEST
+// action ("Harry Potter", "J. J. Rowling", 100, 1997, true)
+// action("Cien años de soledad", "Gabriel García Márquez", 432, 1967, false);
+// action("El señor de los anillos: El retorno del rey", "J. R. R. Tolkien", 416, 1955, true);
+// action("Klara y el sol", "Kazuo Ishiguro", 328, 2021, false);
+// action("Sapiens: De animales a dioses", "Yuval Noah Harari", 496, 2011, true);
+// action("Death Note Vol. 1", "Tsugumi Ohba", 200, 2003, true);
+// action("1984", "George Orwell", 328, 1949, true);
+// action("El principito", "Antoine de Saint-Exupéry", 96, 1943, false);
+// action("Harry Potter y la cámara secreta", "J. K. Rowling", 251, 1998, true);
+// action("Harry Potter y el prisionero de Azkaban", "J. K. Rowling", 317, 1999, true);
+// action("Harry Potter y el cáliz de fuego", "J. K. Rowling", 636, 2000, false);
+// action("Ready Player One", "Ernest Cline", 374, 2011, true);
+// action("The Martian", "Andy Weir", 369, 2011, false);
 
-action ("Harry Potter", "J. J. Rowling", 100, 1997, true)
-action("Cien años de soledad", "Gabriel García Márquez", 432, 1967, false);
-action("El señor de los anillos: El retorno del rey", "J. R. R. Tolkien", 416, 1955, true);
-action("Klara y el sol", "Kazuo Ishiguro", 328, 2021, false);
-action("Sapiens: De animales a dioses", "Yuval Noah Harari", 496, 2011, true);
-action("Death Note Vol. 1", "Tsugumi Ohba", 200, 2003, true);
-action("1984", "George Orwell", 328, 1949, true);
-action("El principito", "Antoine de Saint-Exupéry", 96, 1943, false);
-action("Harry Potter y la cámara secreta", "J. K. Rowling", 251, 1998, true);
-action("Harry Potter y el prisionero de Azkaban", "J. K. Rowling", 317, 1999, true);
-action("Harry Potter y el cáliz de fuego", "J. K. Rowling", 636, 2000, false);
-action("Ready Player One", "Ernest Cline", 374, 2011, true);
-action("The Martian", "Andy Weir", 369, 2011, false);
-
-console.table(myLibrary)
-
+// console.table(myLibrary)
+// --- END TEST
 function removeBook(position) {
   myLibrary.splice(position,1)
 }
+// --- START TEST
+// removeBook(1)
 
-removeBook(1)
-
-console.table(myLibrary)
-
+// console.table(myLibrary)
+// --- END TEST
 //funcion para cambiar el dato read de un elmento del array
 function changeRead(position) {
 
@@ -55,14 +55,36 @@ function changeRead(position) {
     myLibrary[position].read = true
   } else myLibrary[position].read = false
 }
+// --- START TEST
+// changeRead(0)
 
-changeRead(0)
+// console.table(myLibrary)
 
-console.table(myLibrary)
+// changeRead(0)
 
-changeRead(0)
+// console.table(myLibrary)
+// --- END TEST
 
-console.table(myLibrary)
+// -------------con esto ya funciona back
 
-// con esto ya funciona back
+const bookDialog = document.getElementById("book-dialog")
+//
+const addBookBtn = document.getElementById("add-book-btn")
+const cancelBtnDialog = document.getElementById("cancel-btn")
+const subirBtnDialog = document.getElementById("subir-btn")
+//abre el formulario con boton agregar libro
+addBookBtn.addEventListener("click", ()=> {
+  bookDialog.showModal()
+})
+//cerrar formulario
+cancelBtnDialog.addEventListener("click", ()=> {
+  bookDialog.close()
+})
+
+//cerrar formulario
+subirBtnDialog.addEventListener("click", ()=> {
+  bookDialog.close()
+})
+
+
 
