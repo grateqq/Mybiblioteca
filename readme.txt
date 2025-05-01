@@ -11,4 +11,6 @@ no recarga la pagina
 
 al boton summit no se agrega, ya esta incluido.
 
-Tomar datos de formulario.
+Usar boton submit para Tomar datos de formulario, usar funcion action.
+
+agregar en pantalla libros del array
