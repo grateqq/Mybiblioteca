@@ -40,7 +40,11 @@ mostrar la libreria en la pantalla
 eliminar la libreria del pantalla
   clearContainer()
 
-  
+ya funciona el boton de quitar.
+Lo siguiente seria dar funcionalidad al boton submit del formulario
+
+
+
 
 
 

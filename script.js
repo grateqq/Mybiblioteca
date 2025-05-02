@@ -98,6 +98,7 @@ bookForm.addEventListener("submit", (e)=> {
   
   action(title, author, pages, year, read);
   bookForm.reset();
+  clearContainer()
   showLibrary()
   
  
@@ -110,6 +111,7 @@ function clearContainer() {
 
 function showLibrary() {
   clearContainer()
+  console.log("-------------- clear")
  myLibrary.forEach((value, index)=>{
     // console.log("hola")
     // console.log("index: " + index)
@@ -118,25 +120,52 @@ function showLibrary() {
     newDiv.classList.add("libro")
     newDiv.innerHTML = `
       <h4>${myLibrary[index].title}</h4>
-      <h5>${myLibrary[index].author}</h5>
-      <h5>${myLibrary[index].pages}</h5>
-      <h5>${myLibrary[index].year}</h5>
-      <h5>${myLibrary[index].status()}</h5>
+      <p>${myLibrary[index].author}</p>
+      <p>${myLibrary[index].pages}</p>
+      <p>${myLibrary[index].year}</p>
+     
     `
     // console.log(newDiv)
     
+    const switchbutton = document.createElement("input")
+    switchbutton.type = "checkbox";
+    switchbutton.id = `readInput${index}`
+    const readlibro = myLibrary[index].read
+    // console.log(readlibro)
+    switchbutton.checked = readlibro
+
+    switchbutton.addEventListener("click", ()=>{
+      changeRead(index)
+      showLibrary()
+    })
+  
+
+    const switchlabel = document.createElement("label")
+    switchlabel.innerText="Read?"
+    switchlabel.for = `readInput${index}`; 
+
+
+   
+    // if (myLibrary[index].status() === true) {
+    //   switchbutton.setAttribute("checked");
+      
+    // }
+  
+    
+
     const deleteBtn = document.createElement("button")
     deleteBtn.innerText = "quitar"
     deleteBtn.setAttribute("id", libroid);
 
     deleteBtn.addEventListener("click", ()=>{
-      console.log("click en boton: " + libroid)
+      // console.log("click en boton: " + libroid)
       removeBook(libroid)
       clearContainer()
       showLibrary()
       
     })
-    
+    newDiv.appendChild(switchlabel)
+    newDiv.appendChild(switchbutton)
     newDiv.appendChild(deleteBtn)
     container.appendChild(newDiv)
   })
@@ -157,16 +186,3 @@ function showLibrary() {
 
 //
 // --------------------
-function adddeleteBtn (index, padre) {
-  const deleteBook = document.createElement("button")
-  deleteBook.innerText="delete book"
-
-  deleteBook.addEventListener("click", ()=>{
-    // console.log("la posicion es: " + index)
-    removeBook(index)
-    console.table(myLibrary)
-    bodyjs.removeChild(container)
-    showLibrary()
-    
-  })
-}
