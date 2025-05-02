@@ -43,7 +43,7 @@ eliminar la libreria del pantalla
 ya funciona el boton de quitar.
 Lo siguiente seria dar funcionalidad al boton submit del formulario
 
-
+Funcionando
 
 
 
