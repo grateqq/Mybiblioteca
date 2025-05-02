@@ -38,7 +38,7 @@ action("Harry Potter y el cáliz de fuego", "J. K. Rowling", 636, 2000, false);
 action("Ready Player One", "Ernest Cline", 374, 2011, true);
 action("The Martian", "Andy Weir", 369, 2011, false);
 
-console.table(myLibrary)
+// console.table(myLibrary)
 //--- END TEST
 function removeBook(position) {
   myLibrary.splice(position,1)
@@ -84,7 +84,7 @@ cancelBtnDialog.addEventListener("click", ()=> {
   bookDialog.close()
 })
 
-console.log(myLibrary)
+// console.log(myLibrary)
 
 //tomar datos del formulario
 
@@ -102,41 +102,61 @@ bookForm.addEventListener("submit", (e)=> {
   
  
 })
+function clearContainer() {
+  container.innerHTML = ""
+}
+
+
 
 function showLibrary() {
+  clearContainer()
  myLibrary.forEach((value, index)=>{
-  // console.log("hola")
-  // console.log("index: " + index)
-  const deleteBook = document.createElement("button")
-  deleteBook.innerText="delete book"
-  let newDiv = document.createElement("div")
-  newDiv.classList.add("libro")
-  newDiv.innerHTML = `
-    <h1>${myLibrary[index].title}</h1>
-    <h2>${myLibrary[index].author}</h2>
-    <h3>${myLibrary[index].pages}</h3>
-    <h3>${myLibrary[index].year}</h3>
-    <h3>${myLibrary[index].status()}</h3>
-    <button>hola</button>
+    // console.log("hola")
+    // console.log("index: " + index)
+    let newDiv = document.createElement("div")
+    const libroid = index;
+    newDiv.classList.add("libro")
+    newDiv.innerHTML = `
+      <h4>${myLibrary[index].title}</h4>
+      <h5>${myLibrary[index].author}</h5>
+      <h5>${myLibrary[index].pages}</h5>
+      <h5>${myLibrary[index].year}</h5>
+      <h5>${myLibrary[index].status()}</h5>
     `
-  container.appendChild(newDiv)
+    // console.log(newDiv)
+    
+    const deleteBtn = document.createElement("button")
+    deleteBtn.innerText = "quitar"
+    deleteBtn.setAttribute("id", libroid);
+
+    deleteBtn.addEventListener("click", ()=>{
+      console.log("click en boton: " + libroid)
+      removeBook(libroid)
+      clearContainer()
+      showLibrary()
+      
+    })
+    
+    newDiv.appendChild(deleteBtn)
+    container.appendChild(newDiv)
   })
 }
-  // crear por cada elemento del array un div libro
-  // div libreria que muestre todos los div libros.
 
-// Con JS
-// const divlibro = document.createElement("div")
-// divlibro.classList.add("libro")
-// divlibro.innerHTML = `<h1>${myLibrary[0].title}</h1>`
-// container.appendChild(divlibro)
-// console.log(divlibro)
-
-// modo usuruario
-
-showLibrary()
+ showLibrary()
 
 
+
+// clearContainer()
+
+//test
+// removeBook(11)
+// console.table(myLibrary)
+// clearContainer()
+// showLibrary()
+// test ok
+
+//
+// --------------------
 function adddeleteBtn (index, padre) {
   const deleteBook = document.createElement("button")
   deleteBook.innerText="delete book"
@@ -148,12 +168,5 @@ function adddeleteBtn (index, padre) {
     bodyjs.removeChild(container)
     showLibrary()
     
-
-    
-    
   })
 }
-
-
-
-

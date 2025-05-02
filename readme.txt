@@ -13,4 +13,37 @@ al boton summit no se agrega, ya esta incluido.
 
 Usar boton submit para Tomar datos de formulario, usar funcion action.
 
+
 agregar en pantalla libros del array
+
+  cree funcion que muestra los libros cargados en el array
+    showLibrary()
+  necsito una funcion que borre todos los libros que se muestran en patalla.
+    clearContainer()
+
+Almacenamiento de libros
+myLibrary[]
+
+añadir libros al Almacenamiento
+action (title, author, pages, year, read)
+
+eliminar un libros del Almacenamiento
+removeBook(position)
+
+editar el estado de un libro de leido a no leido y viceversa.
+changeRead(position)
+
+----
+mostrar la libreria en la pantalla
+  showLibrary()
+
+eliminar la libreria del pantalla
+  clearContainer()
+
+  
+
+
+
+
+
+  
